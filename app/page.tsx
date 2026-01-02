@@ -1,14 +1,15 @@
-import Hero from "@/components/Hero";
-import Gallery from "@/components/Gallery";
+import Hero from "@/components/home/Hero";
+import FeaturedArtwork from "@/components/home/FeaturedArtwork";
 import Footer from "@/components/Footer";
+import PageTransition from "@/components/home/PageTransition";
 
 export default function Home() {
   return (
-    <>
+    <PageTransition>
       <Hero />
-      <Gallery />
+      <FeaturedArtwork />
       <Footer />
-    </>
+    </PageTransition>
   );
 }
 
