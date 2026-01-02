@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ReactNode } from "react";
 import { cn } from "@/lib/utils";
+import { springConfig } from "@/lib/motion";
 
 interface ButtonProps {
   children: ReactNode;
@@ -26,9 +27,9 @@ export default function Button({
   const baseStyles = "font-medium uppercase tracking-wider rounded-full transition-all";
   
   const variants = {
-    primary: "bg-black dark:bg-white text-white dark:text-black",
-    secondary: "bg-gray-200 dark:bg-gray-800 text-black dark:text-white",
-    outline: "border-2 border-black dark:border-white bg-transparent",
+    primary: "bg-accent-primary text-white hover:shadow-glow-primary",
+    secondary: "bg-accent-secondary text-white hover:shadow-glow-secondary",
+    outline: "border-2 border-foreground-primary bg-transparent",
   };
 
   const sizes = {
@@ -46,9 +47,16 @@ export default function Button({
     <Component
       {...props}
       className={cn(baseStyles, variants[variant], sizes[size], className)}
-      whileHover={{ scale: 1.05, y: -2 }}
-      whileTap={{ scale: 0.95 }}
-      transition={{ type: "spring", stiffness: 400, damping: 17 }}
+      whileHover={{ 
+        scale: 1.05, 
+        y: -4,
+        transition: springConfig.medium,
+      }}
+      whileTap={{ 
+        scale: 0.98,
+        transition: { duration: 0.1 },
+      }}
+      transition={springConfig.medium}
     >
       {children}
     </Component>
