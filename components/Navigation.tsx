@@ -3,11 +3,7 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 
-const navItems = [
-  { name: "Work", href: "#work" },
-  { name: "About", href: "#about" },
-  { name: "Contact", href: "#contact" },
-];
+import { NAV_ITEMS } from "@/lib/constants";
 
 export default function Navigation() {
   const [scrolled, setScrolled] = useState(false);
@@ -44,7 +40,7 @@ export default function Navigation() {
           </motion.a>
 
           <div className="hidden md:flex items-center gap-8">
-            {navItems.map((item, index) => (
+            {NAV_ITEMS.map((item, index) => (
               <motion.a
                 key={item.name}
                 href={item.href}

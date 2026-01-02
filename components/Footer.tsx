@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { SOCIAL_LINKS, SITE_NAME } from "@/lib/constants";
 
 export default function Footer() {
   return (
@@ -14,7 +15,7 @@ export default function Footer() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            © {new Date().getFullYear()} Portfolio. All rights reserved.
+            © {new Date().getFullYear()} {SITE_NAME}. All rights reserved.
           </motion.p>
 
           <motion.div
@@ -24,11 +25,11 @@ export default function Footer() {
             viewport={{ once: true }}
             transition={{ delay: 0.1, duration: 0.6 }}
           >
-            {["Instagram", "Twitter", "LinkedIn"].map((social, index) => (
+            {Object.entries(SOCIAL_LINKS).map(([platform, url], index) => (
               <motion.a
-                key={social}
-                href="#"
-                className="text-sm text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors"
+                key={platform}
+                href={url}
+                className="text-sm text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors capitalize"
                 whileHover={{ scale: 1.1, y: -2 }}
                 whileTap={{ scale: 0.95 }}
                 initial={{ opacity: 0, y: 10 }}
@@ -36,7 +37,7 @@ export default function Footer() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 + 0.2, duration: 0.4 }}
               >
-                {social}
+                {platform}
               </motion.a>
             ))}
           </motion.div>

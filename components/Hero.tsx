@@ -85,7 +85,7 @@ export default function Hero() {
           variants={itemVariants}
         >
           <motion.a
-            href="#work"
+            href="/portfolio"
             className="px-8 py-4 bg-black dark:bg-white text-white dark:text-black rounded-full font-medium text-sm uppercase tracking-wider"
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
@@ -95,7 +95,7 @@ export default function Hero() {
           </motion.a>
 
           <motion.a
-            href="#about"
+            href="/about"
             className="px-8 py-4 border-2 border-black dark:border-white rounded-full font-medium text-sm uppercase tracking-wider"
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
