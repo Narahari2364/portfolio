@@ -124,7 +124,22 @@ export function getFeaturedArtworks(): Artwork[] {
 
 export function getArtworksByCategory(category: string): Artwork[] {
   if (category === "all") return artworks;
-  return artworks.filter((artwork) => artwork.category.toLowerCase() === category.toLowerCase());
+  
+  // Map category slugs to category names
+  const categoryMap: Record<string, string> = {
+    "digital-art": "Digital Art",
+    "abstract": "Abstract",
+    "minimalism": "Minimalism",
+    "color-study": "Color Study",
+    "geometric": "Geometric",
+    "organic": "Organic",
+  };
+  
+  const categoryName = categoryMap[category] || category;
+  
+  return artworks.filter(
+    (artwork) => artwork.category.toLowerCase() === categoryName.toLowerCase()
+  );
 }
 
 export function getRelatedArtworks(artwork: Artwork, limit: number = 3): Artwork[] {

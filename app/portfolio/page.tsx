@@ -8,7 +8,7 @@ import LoadingSpinner from "@/components/ui/LoadingSpinner";
 
 export default function PortfolioPage() {
   return (
-    <Section id="portfolio" className="pt-32">
+    <Section id="portfolio" className="pt-32 pb-24 sm:pb-32 lg:pb-40">
       <PageContainer>
         <PortfolioHeader />
         <Suspense fallback={<LoadingSpinner />}>
